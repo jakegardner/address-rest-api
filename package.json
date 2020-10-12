@@ -5,17 +5,20 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/index.js"
   },
   "author": "Jake Gardner",
   "license": "ISC",
   "dependencies": {
+    "@koa/router": "^9.4.0",
     "koa": "^2.13.0"
   },
   "engines": {
     "node": ">=12.13.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "dirty-chai": "^2.0.1",
     "mocha": "^8.1.3",
     "supertest": "^5.0.0"
   }
