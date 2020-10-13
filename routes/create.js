@@ -1,4 +1,5 @@
 const { Joi } = require('koa-joi-router');
+const Address = require('../schemas/mongoose/address');
 const addressSchema = require('../schemas/joi/address');
 const isValidState = require('../lib/validate-state');
 
@@ -17,9 +18,8 @@ module.exports = {
       ctx.throw(400, `Invalid state, country combination: ${state}, ${country}`);
     }
 
-    const id = String(ctx.addresses.length);
-    const newAddress = { id, ...ctx.request.body };
-    ctx.addresses.push(newAddress);
+    const { id } = await Address.create(payload);
+
     ctx.body = { id };
     ctx.status = 201;
   },

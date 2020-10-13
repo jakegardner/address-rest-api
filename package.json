@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "docker-start": "docker build ./db && docker run -d -p 27017:27017 --name address-db mongo",
+    "docker-stop": "docker rm -f address-db",
     "start": "node index.js",
-    "test": "mocha test/index.js"
+    "test": "NODE_ENV=test mocha test/index.js"
   },
   "author": "Jake Gardner",
   "license": "ISC",
@@ -14,6 +16,8 @@
     "koa": "^2.13.0",
     "koa-joi-router": "^6.0.2",
     "koa-logger": "^3.2.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.9",
     "node-fetch": "^2.6.1",
     "require-directory": "^2.1.1"
   },
